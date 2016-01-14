@@ -18,6 +18,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'quiet_assets', group: :development
 gem 'angularjs-rails'
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
