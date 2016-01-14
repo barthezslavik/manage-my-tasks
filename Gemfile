@@ -17,7 +17,7 @@ gem 'therubyracer',  platforms: :ruby
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'quiet_assets', group: :development
-gem 'simple_form'
+gem 'angularjs-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

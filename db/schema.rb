@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113185530) do
+ActiveRecord::Schema.define(version: 20160114060131) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160113185530) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "task_id"
+    t.integer  "project_id"
     t.boolean  "done"
     t.date     "deadline"
     t.datetime "created_at"
