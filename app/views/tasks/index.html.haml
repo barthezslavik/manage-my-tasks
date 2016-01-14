@@ -17,7 +17,7 @@
       %tr
         %td= task.name
         %td= task.description
-        %td= task.task_id
+        %td= task.project.try(:name)
         %td= task.done
         %td= task.deadline
         %td= link_to 'Show', task

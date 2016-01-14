@@ -7,8 +7,8 @@
   %b Description:
   = @task.description
 %p
-  %b Task:
-  = @task.task_id
+  %b Project:
+  = @task.project.try(:name)
 %p
   %b Done:
   = @task.done

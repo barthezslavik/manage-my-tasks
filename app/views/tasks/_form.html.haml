@@ -13,8 +13,8 @@
     = f.label :description
     = f.text_area :description
   .field
-    = f.label :task_id
-    = f.number_field :task_id
+    = f.label :project_id
+    = f.collection_select(:project_id, Project.all, :id, :name)
   .field
     = f.label :done
     = f.check_box :done
