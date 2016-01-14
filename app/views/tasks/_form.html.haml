@@ -14,12 +14,15 @@
     = f.text_area :description
   .field
     = f.label :project_id
-    = f.collection_select(:project_id, Project.all, :id, :name)
+    = f.collection_select :project_id, Project.all, :id, :name
   .field
     = f.label :done
     = f.check_box :done
   .field
     = f.label :deadline
     = f.date_select :deadline
+  .field
+    = f.label :priority
+    = f.collection_select :priority, [[1, "High"], [2, "Normal"], [3, "Low"]], :first, :last, include_blank: false
   .actions
     = f.submit 'Save'
