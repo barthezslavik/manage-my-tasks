@@ -8,12 +8,31 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div ng-controller="ProjectController">
+    <div ng-controller="ProjectIndexController">
       <div class="list-group">
-        <a href="#/projects/{{project.id}}" class="list-group-item" ng-repeat="project in projects">
+        <a href="/#/projects/{{project.id}}" class="list-group-item" ng-repeat="project in projects">
           {{project}}
         </a>
       </div>
     </div>
+
+    <div ng-controller="MainCtrl" class="container">
+	  <h1>Modal example</h1>
+	  <button ng-click="toggleModal()" class="btn btn-default">Open modal</button>
+	    
+	  <modal title="Login form" visible="showModal">
+	    <form role="form">
+	      <div class="form-group">
+	        <label for="email">Email address</label>
+	        <input type="email" class="form-control" id="email" placeholder="Enter email" />
+	      </div>
+	      <div class="form-group">
+	        <label for="password">Password</label>
+	        <input type="password" class="form-control" id="password" placeholder="Password" />
+	      </div>
+	      <button type="submit" class="btn btn-default">Submit</button>
+	    </form>
+	  </modal>
+	</div>
   </body>
 </html>
