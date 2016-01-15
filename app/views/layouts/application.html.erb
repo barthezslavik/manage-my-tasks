@@ -9,7 +9,11 @@
   </head>
   <body>
     <div ng-controller="ProjectController">
-      {{ greeting }}
+      <div class="list-group">
+        <a href="#/projects/{{project.id}}" class="list-group-item" ng-repeat="project in projects">
+          {{project}}
+        </a>
+      </div>
     </div>
   </body>
 </html>
