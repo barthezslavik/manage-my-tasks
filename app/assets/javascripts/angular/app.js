@@ -1,4 +1,4 @@
-var app = angular.module('application',["ngRoute", "ngResource"]);
+var app = angular.module('application',["ngRoute"]);
 
 //app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 //  var partialsUrl = '/partials/';
@@ -26,14 +26,20 @@ var app = angular.module('application',["ngRoute", "ngResource"]);
 //    .otherwise({ redirectTo: "/angular" });
 //});
 
-app.controller('ProjectIndexController', ['$scope', '$http', function($scope, $http, $routeParams) {
-  $scope.route = $routeParams;
-  $http.get('http://localhost:3000/projects.json').
-    success(function(data) {
-      $scope.projects = data;
-  });
+app.controller('ProjectIndexController', ['$scope', '$http', function($scope, $http) {
+//  $http.get('http://localhost:3000/projects.json').
+//    success(function(data) {
+//      $scope.projects = data;
+//  });
 }]);
 
+app.controller('ProjectShowController', ['$scope', '$http', function($scope, $http) {
+  project_id = location.hash.split("/").pop();
+  $http.get('http://localhost:3000/projects/'+project_id+'.json').
+    success(function(data) {
+      $scope.project = data;
+  });
+}]);
 
 app.controller('MainCtrl', function ($scope) {
     $scope.showModal = false;
