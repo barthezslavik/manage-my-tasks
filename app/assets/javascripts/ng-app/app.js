@@ -31,16 +31,16 @@ angular
 //    .otherwise({ redirectTo: "/angular" });
 //});
 
-app.controller('ProjectIndexController', ['$scope', '$http', function($scope, $http) {
-  $http.get('http://localhost:3000/projects.json').
-    success(function(data) {
-      $scope.projects = data;
-  });
-  $scope.showModal = false;
-  $scope.toggleModal = function(){
-    $scope.showModal = !$scope.showModal;
-  };
-}]);
+//app.controller('ProjectIndexController', ['$scope', '$http', function($scope, $http) {
+//  $http.get('http://localhost:3000/projects.json').
+//   success(function(data) {
+//      $scope.projects = data;
+//  });
+//  $scope.showModal = false;
+//  $scope.toggleModal = function(){
+//    $scope.showModal = !$scope.showModal;
+//  };
+//}]);
 
 //app.controller('ProjectShowController', ['$scope', '$http', function($scope, $http) {
 //  project_id = location.hash.split("/").pop();
