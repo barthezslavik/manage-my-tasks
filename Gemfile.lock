@@ -27,9 +27,14 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angular-rails-templates (0.2.0)
+      railties (>= 3.1)
+      sprockets (~> 2)
+      tilt
     angularjs-rails (1.4.8)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bower-rails (0.10.0)
     builder (3.2.2)
     cancan (1.6.10)
     coffee-rails (4.0.1)
@@ -162,7 +167,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
   angularjs-rails
+  bower-rails
   cancan
   coffee-rails (~> 4.0.0)
   devise

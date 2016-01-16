@@ -15,8 +15,7 @@
 //= require twitter/bootstrap
 //= require angular
 //= require angular-route
-//= require angular/app
-//= require_tree ./angular/directives
-//= require_tree ./angular/services
-//= require_tree ./angular/controllers
+//= require angular-rails-templates
+//= require ng-app/app
+//= require_tree ../templates
 //= require_tree .

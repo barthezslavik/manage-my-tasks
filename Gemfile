@@ -20,6 +20,8 @@ gem 'quiet_assets', group: :development
 gem 'angularjs-rails'
 gem 'devise'
 gem 'cancan'
+gem 'bower-rails'
+gem 'angular-rails-templates'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

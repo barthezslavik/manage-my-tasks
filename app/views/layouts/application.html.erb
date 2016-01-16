@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="application">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,35 +7,32 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <div ng-controller="ProjectIndexController">
+  <body ng-app="application">
+    <div ng-controller="ProjectIndexController" class="container">
       <div class="list-group">
         <a href="/#/projects/{{project.id}}" class="list-group-item" ng-repeat="project in projects">
           {{project}}
         </a>
       </div>
+      <button ng-click="createProject()" class="btn btn-default">Create project</button>
+        
+      <modal title="Login form" visible="showModal">
+        <form role="form">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" />
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </modal>
     </div>
 
-    <div ng-controller="ProjectShowController" class="container">
+    <!--<div ng-controller="ProjectShowController" class="container">
       <ul class="list-group">
         <li class="list-group-item">{{project.name}}</li>
         <li class="list-group-item">{{project.description}}</li>
       </ul>
-    </div>
-
-    <div ng-controller="MainCtrl" class="container">
-	  <h1>Modal example</h1>
-	  <button ng-click="createProject()" class="btn btn-default">Create project</button>
-	    
-	  <modal title="Login form" visible="showModal">
-	    <form role="form">
-	      <div class="form-group">
-	        <label for="email">Email address</label>
-	        <input type="email" class="form-control" id="email" placeholder="Enter email" />
-	      </div>
-	      <button type="submit" class="btn btn-default">Submit</button>
-	    </form>
-	  </modal>
+    </div>-->
 
 	</div>
   </body>
