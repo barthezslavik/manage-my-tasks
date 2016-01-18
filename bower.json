@@ -6,6 +6,7 @@
       // "gsvpano.js"  : "https://github.com/rharriso/GSVPano.js/blob/master/src/GSVPano.js"
       "angular": "latest",
       "angular-resource": "latest",
+      "angular-ui": "latest",
       "angular-ui-router": "latest"
     }
   },

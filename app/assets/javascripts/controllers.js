@@ -45,9 +45,15 @@ app.controller('ProjectEditController',function($scope,$state,$stateParams,Proje
     $scope.loadProject();
 });
 
+
 app.controller('TaskCreateController',function($location,$rootScope,$scope,$state,$stateParams,Task,Project){
     $scope.task=new Task();
     $scope.task.project_id = $rootScope.project_id;
+    $scope.priorities = [
+      { id: 1, name: 'High' },
+      { id: 2, name: 'Normal' },
+      { id: 3, name: 'Low' }
+    ];
     $scope.addTask=function(){
         $scope.task.$save(function(){
           $location.path('projects/'+$rootScope.project_id+'/view')
@@ -56,6 +62,11 @@ app.controller('TaskCreateController',function($location,$rootScope,$scope,$stat
 })
 
 app.controller('TaskEditController',function($location,$scope,$state,$stateParams,Task){
+    $scope.priorities = [
+      { id: 1, name: 'High' },
+      { id: 2, name: 'Normal' },
+      { id: 3, name: 'Low' }
+    ];
     $scope.updateTask=function(){
         $scope.task.$update(function(){
           $location.path('projects/'+$scope.task.project_id+'/view')
@@ -63,6 +74,7 @@ app.controller('TaskEditController',function($location,$scope,$state,$stateParam
     };
     $scope.loadTask=function(){
         $scope.task=Task.get({id:$stateParams.id});
+        //$scope.selectedItem = null;
     };
     $scope.loadTask();
 });
