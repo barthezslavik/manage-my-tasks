@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def partials
-    render params[:partials]
+    render params[:partials], layout: false
   end
 end

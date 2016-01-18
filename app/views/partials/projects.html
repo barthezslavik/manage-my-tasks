@@ -4,9 +4,11 @@
     <td></td>
   </tr>
   <tr ng-repeat="project in projects">
-    <td>{{project.name}}</td>
     <td>
-      <a class="btn btn-primary" ui-sref="viewProject({id:project.id})">View</a>
+      <a ui-sref="viewProject({id:project.id})">{{project.name}}</a>
+    </td>
+    <td>
+      <a class="btn btn-primary" ui-sref="editProject({id:project.id})">Edit</a>
       <a class="btn btn-danger" ng-click="deleteProject(project)">Delete</a>
     </td>
   </tr>
