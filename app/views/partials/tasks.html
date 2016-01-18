@@ -1,11 +1,13 @@
-<table class="table">
-  <tr ng-repeat="task in tasks">
-    <td>
-      <a>{{task.name}}</a>
-    </td>
-    <td>
-      <a class="btn btn-primary" ui-sref="editTask({id:task.id})">Edit</a>
-      <a class="btn btn-danger" ng-click="deleteTask(task)">Delete</a>
-    </td>
-  </tr>
+<table class="table table-striped">
+  <tbody>
+    <tr ng-repeat="task in tasks">
+      <td>
+        {{task.name}}
+      </td>
+      <td>
+        <a class="btn btn-primary" ui-sref="editTask({id:task.id})">Edit</a>
+        <a class="btn btn-danger" ng-click="deleteTask(task)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
 </table>

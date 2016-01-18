@@ -23,6 +23,8 @@ gem 'cancan'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'inherited_resources'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

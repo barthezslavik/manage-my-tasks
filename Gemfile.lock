@@ -34,6 +34,8 @@ GEM
     angularjs-rails (1.4.8)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     bower-rails (0.10.0)
     builder (3.2.2)
     cancan (1.6.10)
@@ -95,6 +97,8 @@ GEM
     mime-types (1.25.1)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
@@ -177,6 +181,7 @@ PLATFORMS
 DEPENDENCIES
   angular-rails-templates
   angularjs-rails
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   bower-rails
   cancan
   coffee-rails (~> 4.0.0)
@@ -186,6 +191,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
+  momentjs-rails (>= 2.9.0)
   quiet_assets
   rails (= 4.1.0)
   sass-rails (~> 4.0.3)

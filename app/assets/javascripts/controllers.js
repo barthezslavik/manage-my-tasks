@@ -11,10 +11,17 @@ app.controller('ProjectListController',function($scope,$state,popupService,$wind
     }
 })
 
-app.controller('ProjectViewController',function($rootScope, $scope,$stateParams,Project,Task){
+app.controller('ProjectViewController',function($rootScope,popupService,$scope,$window,$stateParams,Project,Task){
     $scope.project=Project.get({id:$stateParams.id});
     $scope.tasks=Task.query({project_id:$stateParams.id});
     $rootScope.project_id = $stateParams.id; 
+        $scope.deleteTask=function(task){
+        if(popupService.showPopup('Are you sure?')){
+            task.$delete(function(){
+                $window.location.href='';
+            });
+        }
+    }
 })
 
 app.controller('ProjectCreateController',function($scope,$state,$stateParams,Project){
@@ -22,16 +29,6 @@ app.controller('ProjectCreateController',function($scope,$state,$stateParams,Pro
     $scope.addProject=function(){
         $scope.project.$save(function(){
           $state.go('projects');
-        });
-    }
-})
-
-app.controller('TaskCreateController',function($location, $rootScope,$scope,$state,$stateParams,Task,Project){
-    $scope.task=new Task();
-    $scope.task.project_id = $rootScope.project_id;
-    $scope.addTask=function(){
-        $scope.task.$save(function(){
-          $location.path('projects/'+$rootScope.project_id+'/view')
         });
     }
 })
@@ -48,7 +45,22 @@ app.controller('ProjectEditController',function($scope,$state,$stateParams,Proje
     $scope.loadProject();
 });
 
-app.controller('TaskEditController',function($scope,$state,$stateParams,Task){
+app.controller('TaskCreateController',function($location,$rootScope,$scope,$state,$stateParams,Task,Project){
+    $scope.task=new Task();
+    $scope.task.project_id = $rootScope.project_id;
+    $scope.addTask=function(){
+        $scope.task.$save(function(){
+          $location.path('projects/'+$rootScope.project_id+'/view')
+        });
+    }
+})
+
+app.controller('TaskEditController',function($location,$scope,$state,$stateParams,Task){
+    $scope.updateTask=function(){
+        $scope.task.$update(function(){
+          $location.path('projects/'+$scope.task.project_id+'/view')
+        });
+    };
     $scope.loadTask=function(){
         $scope.task=Task.get({id:$stateParams.id});
     };

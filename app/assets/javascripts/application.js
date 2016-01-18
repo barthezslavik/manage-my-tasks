@@ -17,4 +17,6 @@
 //= require angular-resource
 //= require angular-ui-router
 //= require controllers
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
