@@ -11,25 +11,27 @@ app.controller('ProjectListController',function($scope,$state,popupService,$wind
     }
 })
 
-app.controller('ProjectViewController',function($scope,$stateParams,Project,Task){
+app.controller('ProjectViewController',function($rootScope, $scope,$stateParams,Project,Task){
     $scope.project=Project.get({id:$stateParams.id});
     $scope.tasks=Task.query({project_id:$stateParams.id});
+    $rootScope.project_id = $stateParams.id; 
 })
 
 app.controller('ProjectCreateController',function($scope,$state,$stateParams,Project){
     $scope.project=new Project();
     $scope.addProject=function(){
         $scope.project.$save(function(){
-            $state.go('projects');
+          $state.go('projects');
         });
     }
 })
 
-app.controller('TaskCreateController',function($scope,$state,$stateParams,Task){
+app.controller('TaskCreateController',function($location, $rootScope,$scope,$state,$stateParams,Task,Project){
+    $scope.projects=Project.query();
     $scope.task=new Task();
     $scope.addTask=function(){
         $scope.task.$save(function(){
-            $state.go('projects');
+          $location.path('projects/'+$rootScope.project_id+'/view')
         });
     }
 })
