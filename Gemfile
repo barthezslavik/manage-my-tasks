@@ -22,6 +22,7 @@ gem 'devise'
 gem 'cancan'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'inherited_resources'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

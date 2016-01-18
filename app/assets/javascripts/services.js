@@ -1,5 +1,5 @@
-app = angular.module('application.services',[]).factory('Movie',function($resource){
-  return $resource('/api/movies/:id',{id:'@_id'},{
+app = angular.module('application.services',[]).factory('Project',function($resource){
+  return $resource('/api/projects/:id',{id:'@_id'},{
     update: {
       method: 'PUT'
     }
