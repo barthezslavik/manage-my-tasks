@@ -13,7 +13,7 @@ app.config(function($stateProvider){
         url:'/projects/new',
         templateUrl:'partials/project-add.html',
         controller:'ProjectCreateController'
-    }).state('editMovie',{
+    }).state('editProject',{
         url:'/projects/:id/edit',
         templateUrl:'partials/project-edit.html',
         controller:'ProjectEditController'
