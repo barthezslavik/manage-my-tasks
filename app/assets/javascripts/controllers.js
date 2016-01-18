@@ -27,8 +27,8 @@ app.controller('ProjectCreateController',function($scope,$state,$stateParams,Pro
 })
 
 app.controller('TaskCreateController',function($location, $rootScope,$scope,$state,$stateParams,Task,Project){
-    $scope.projects=Project.query();
     $scope.task=new Task();
+    $scope.task.project_id = $rootScope.project_id;
     $scope.addTask=function(){
         $scope.task.$save(function(){
           $location.path('projects/'+$rootScope.project_id+'/view')

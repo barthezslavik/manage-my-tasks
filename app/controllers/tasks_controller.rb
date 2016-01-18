@@ -7,6 +7,6 @@ class TasksController < InheritedResources::Base
 
   private
     def permitted_params
-      params.permit task: [:name, :description]
+      params.permit task: [:name, :project_id, :description]
     end
 end
