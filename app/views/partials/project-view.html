@@ -3,10 +3,9 @@
     <td><h3>{{project.name}}</h3></td>
     <td></td>
   </tr>
-  <tr ng-repeat="task in tasks">
-    <td>Name</td>
-    <td>{{task.name}}</td>
-  </tr>
 </table>
+
+
+<div ng-include="'partials/tasks.html'"></div>
   
 <a ui-sref="newTask" class="btn-primary btn-lg nodecoration">Add New Task</a>

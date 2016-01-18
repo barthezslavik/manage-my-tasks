@@ -13,10 +13,18 @@ app.config(function($stateProvider){
         url:'/projects/new',
         templateUrl:'partials/project-add.html',
         controller:'ProjectCreateController'
+    }).state('newTask',{
+        url:'/tasks/new',
+        templateUrl:'partials/task-add.html',
+        controller:'TaskCreateController'
     }).state('editProject',{
         url:'/projects/:id/edit',
         templateUrl:'partials/project-edit.html',
         controller:'ProjectEditController'
+    }).state('editTask',{
+        url:'/tasks/:id/edit',
+        templateUrl:'partials/task-edit.html',
+        controller:'TaskEditController'
     });
 }).run(function($state){
    $state.go('projects');

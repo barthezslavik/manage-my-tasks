@@ -25,6 +25,15 @@ app.controller('ProjectCreateController',function($scope,$state,$stateParams,Pro
     }
 })
 
+app.controller('TaskCreateController',function($scope,$state,$stateParams,Task){
+    $scope.task=new Task();
+    $scope.addTask=function(){
+        $scope.task.$save(function(){
+            $state.go('projects');
+        });
+    }
+})
+
 app.controller('ProjectEditController',function($scope,$state,$stateParams,Project){
     $scope.updateProject=function(){
         $scope.project.$update(function(){
@@ -35,4 +44,11 @@ app.controller('ProjectEditController',function($scope,$state,$stateParams,Proje
         $scope.project=Project.get({id:$stateParams.id});
     };
     $scope.loadProject();
+});
+
+app.controller('TaskEditController',function($scope,$state,$stateParams,Task){
+    $scope.loadTask=function(){
+        $scope.task=Task.get({id:$stateParams.id});
+    };
+    $scope.loadTask();
 });
