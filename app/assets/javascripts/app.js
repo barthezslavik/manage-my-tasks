@@ -1,4 +1,4 @@
-app = angular.module('application',['ui.router','ngResource','application.controllers','application.services']);
+app = angular.module('application',['ui.router','ngResource','application.controllers','application.project','application.task']);
 
 app.config(function($stateProvider){
     $stateProvider.state('projects',{
