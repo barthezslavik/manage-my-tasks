@@ -1,5 +1,6 @@
 class TasksController < InheritedResources::Base
   respond_to :json
+  #load_and_authorize_resource
   
   def index
     @tasks = Task.where(project_id: params[:project_id])

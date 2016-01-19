@@ -1,6 +1,13 @@
 app = angular.module('application.controllers',[])
 
-app.controller('ProjectListController',function($scope,$state,popupService,$window,Project){
+app.controller('ProjectListController',
+  function($scope,$state,popupService,$window,Project,Auth){
+
+    Auth.currentUser().then(function(user) {
+      console.log(user);
+      }, function(error) {
+    });
+    
     $scope.projects=Project.query();
     $scope.deleteProject=function(project){
         if(popupService.showPopup('Are you sure?')){

@@ -5,6 +5,7 @@
       // "threex"      : "git@github.com:rharriso/threex.git",
       // "gsvpano.js"  : "https://github.com/rharriso/GSVPano.js/blob/master/src/GSVPano.js"
       "angular": "latest",
+      "angular-devise": "latest",
       "angular-resource": "latest",
       "angular-ui": "latest",
       "angular-ui-router": "latest"

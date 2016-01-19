@@ -1,4 +1,5 @@
-app = angular.module('application',['ui.router','ngResource','application.controllers','application.project','application.task']);
+app = angular.module('application',['ui.router','ngResource','Devise',
+  'application.controllers','application.project','application.task']);
 
 app.config(function($stateProvider){
     $stateProvider.state('projects',{
@@ -34,3 +35,5 @@ app.config(function($stateProvider){
      { id: 3, name: 'Low' }
    ];
 });
+
+    
