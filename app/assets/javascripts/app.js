@@ -22,13 +22,27 @@ app.config(function($stateProvider){
         url:'/projects/:id/edit',
         templateUrl:'partials/project-edit.html',
         controller:'ProjectEditController'
+    }).state('sign_up',{
+        url:'/users/sign_up',
+        templateUrl:'partials/sign-up.html',
+        controller:'SignUpController'
+    }).state('sign_in',{
+        url:'/users/sign_in',
+        templateUrl:'partials/sign-in.html',
+        controller:'SignInController'
     }).state('editTask',{
         url:'/tasks/:id/edit',
         templateUrl:'partials/task-edit.html',
         controller:'TaskEditController'
     });
-}).run(function($state,$rootScope){
-   $state.go('projects');
+}).run(function($state,$rootScope,Auth){
+    Auth.currentUser().then(function(user) {
+        $state.go('projects');
+        console.log(user);
+      }, function(error) {
+        $state.go('sign_in');
+    });
+
    $rootScope.priorities = [
      { id: 'High', name: 'High' },
      { id: 'Normal', name: 'Normal' },

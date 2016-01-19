@@ -1,0 +1,20 @@
+<form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" ng-submit="signUp()" method="post">
+  <div class="form-group">
+    <label for="user_email">Email</label><br />
+    <input class="form-control" autofocus="autofocus" id="user_email" name="user[email]" type="email" value="" />
+  </div>
+
+  <div class="form-group">
+    <label for="user_password">Password</label><br />
+    <input class="form-control" autocomplete="off" id="user_password" name="user[password]" type="password" />
+  </div>
+ 
+  <div class="form-group">
+    <label for="user_password_confirmation">Password confirmation</label><br />
+    <input class="form-control" autocomplete="off" id="user_password" name="user[password]" type="password" />
+  </div>
+
+  <div>
+    <input name="commit" type="submit" value="Register" class="btn btn-primary" />
+  </div>
+</form>
