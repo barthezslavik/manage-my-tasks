@@ -2,8 +2,8 @@
   <tbody>
     <tr ng-repeat="task in tasks">
       <td>
-        <div class="checkbox" ng-class="{completed: todo.completed}">
-          <label><input type="checkbox" value="" ng-model="todo.completed" ng-change="doneTask(task)">{{task.name}}</label>
+        <div class="checkbox">
+          <label ng-class="{done: task.done}"><input type="checkbox" ng-model="task.done" ng-click="toggleTask(task)">{{task.name}}</label>
         </div>
       </td>
       <td>

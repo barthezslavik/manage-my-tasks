@@ -1,5 +1,24 @@
 app = angular.module('application.controllers',[])
 
+app.controller('ProjectViewController',function($rootScope,popupService,$scope,$window,$stateParams,Project,Task){
+    $scope.project=Project.get({id:$stateParams.id});
+    $scope.tasks=Task.query({project_id:$stateParams.id});
+    $rootScope.project_id = $stateParams.id;
+    $scope.priorities = $rootScope.priorities;
+    //$filter('filter')($rootScope.priorities, {id: 1})[0];
+
+    $scope.deleteTask=function(task){
+      if(popupService.showPopup('Are you sure?')){
+          task.$delete(function(){
+              $window.location.href='';
+          });
+      }
+    }
+    $scope.toggleTask=function(task){
+      task.$update(function() {});
+    }
+})
+
 app.controller('ProjectListController',
   function($scope,$state,popupService,$window,Project,Auth){
 
@@ -15,24 +34,6 @@ app.controller('ProjectListController',
                 $window.location.href='';
             });
         }
-    }
-})
-
-app.controller('ProjectViewController',function($rootScope,popupService,$scope,$window,$stateParams,Project,Task){
-    $scope.project=Project.get({id:$stateParams.id});
-    $scope.tasks=Task.query({project_id:$stateParams.id});
-    $rootScope.project_id = $stateParams.id;
-    $scope.priorities = $rootScope.priorities;
-    //$filter('filter')($rootScope.priorities, {id: 1})[0];
-    $scope.deleteTask=function(task){
-      if(popupService.showPopup('Are you sure?')){
-          task.$delete(function(){
-              $window.location.href='';
-          });
-      }
-    }
-    $scope.doneTask=function(task){
-      task.done = true;
     }
 })
 
