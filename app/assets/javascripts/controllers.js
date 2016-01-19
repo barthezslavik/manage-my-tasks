@@ -4,8 +4,6 @@ app.controller('ProjectViewController',function($rootScope,popupService,$scope,$
     $scope.project=Project.get({id:$stateParams.id});
     $scope.tasks=Task.query({project_id:$stateParams.id});
     $rootScope.project_id = $stateParams.id;
-    $scope.priorities = $rootScope.priorities;
-    //$filter('filter')($rootScope.priorities, {id: 1})[0];
 
     $scope.deleteTask=function(task){
       if(popupService.showPopup('Are you sure?')){
@@ -15,7 +13,7 @@ app.controller('ProjectViewController',function($rootScope,popupService,$scope,$
       }
     }
     $scope.toggleTask=function(task){
-      task.$update(function() {});
+        task.$update(function() {});
     }
 })
 
@@ -41,7 +39,7 @@ app.controller('ProjectCreateController',function($scope,$state,$stateParams,Pro
     $scope.project=new Project();
     $scope.addProject=function(){
         $scope.project.$save(function(){
-          $state.go('projects');
+            $state.go('projects');
         });
     }
 })
@@ -65,7 +63,7 @@ app.controller('TaskCreateController',function($location,$rootScope,$scope,$stat
 
     $scope.addTask=function(){
         $scope.task.$save(function(){
-          $location.path('projects/'+$rootScope.project_id+'/view')
+            $location.path('projects/'+$rootScope.project_id+'/view')
         });
     }
 })
@@ -73,7 +71,7 @@ app.controller('TaskCreateController',function($location,$rootScope,$scope,$stat
 app.controller('TaskEditController',function($location,$scope,$state,$stateParams,Task){
     $scope.updateTask=function(){
         $scope.task.$update(function(){
-          $location.path('projects/'+$scope.task.project_id+'/view')
+            $location.path('projects/'+$scope.task.project_id+'/view')
         });
     };
     $scope.loadTask=function(){

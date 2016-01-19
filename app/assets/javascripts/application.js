@@ -18,6 +18,5 @@
 //= require angular-ui-router
 //= require angular-devise/lib/devise
 //= require controllers
-//= require moment
-//= require bootstrap-datetimepicker
+//= require bootstrap-datepicker
 //= require_tree .

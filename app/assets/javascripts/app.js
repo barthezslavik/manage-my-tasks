@@ -30,9 +30,9 @@ app.config(function($stateProvider){
 }).run(function($state,$rootScope){
    $state.go('projects');
    $rootScope.priorities = [
-     { id: 1, name: 'High' },
-     { id: 2, name: 'Normal' },
-     { id: 3, name: 'Low' }
+     { id: 'High', name: 'High' },
+     { id: 'Normal', name: 'Normal' },
+     { id: 'Low', name: 'Low' }
    ];
 });
 
