@@ -14,13 +14,18 @@ app.controller('ProjectListController',function($scope,$state,popupService,$wind
 app.controller('ProjectViewController',function($rootScope,popupService,$scope,$window,$stateParams,Project,Task){
     $scope.project=Project.get({id:$stateParams.id});
     $scope.tasks=Task.query({project_id:$stateParams.id});
-    $rootScope.project_id = $stateParams.id; 
-        $scope.deleteTask=function(task){
-        if(popupService.showPopup('Are you sure?')){
-            task.$delete(function(){
-                $window.location.href='';
-            });
-        }
+    $rootScope.project_id = $stateParams.id;
+    $scope.priorities = $rootScope.priorities;
+    //$filter('filter')($rootScope.priorities, {id: 1})[0];
+    $scope.deleteTask=function(task){
+      if(popupService.showPopup('Are you sure?')){
+          task.$delete(function(){
+              $window.location.href='';
+          });
+      }
+    }
+    $scope.doneTask=function(task){
+      task.done = true;
     }
 })
 
@@ -49,11 +54,7 @@ app.controller('ProjectEditController',function($scope,$state,$stateParams,Proje
 app.controller('TaskCreateController',function($location,$rootScope,$scope,$state,$stateParams,Task,Project){
     $scope.task=new Task();
     $scope.task.project_id = $rootScope.project_id;
-    $scope.priorities = [
-      { id: 1, name: 'High' },
-      { id: 2, name: 'Normal' },
-      { id: 3, name: 'Low' }
-    ];
+
     $scope.addTask=function(){
         $scope.task.$save(function(){
           $location.path('projects/'+$rootScope.project_id+'/view')
@@ -62,11 +63,6 @@ app.controller('TaskCreateController',function($location,$rootScope,$scope,$stat
 })
 
 app.controller('TaskEditController',function($location,$scope,$state,$stateParams,Task){
-    $scope.priorities = [
-      { id: 1, name: 'High' },
-      { id: 2, name: 'Normal' },
-      { id: 3, name: 'Low' }
-    ];
     $scope.updateTask=function(){
         $scope.task.$update(function(){
           $location.path('projects/'+$scope.task.project_id+'/view')
@@ -74,7 +70,6 @@ app.controller('TaskEditController',function($location,$scope,$state,$stateParam
     };
     $scope.loadTask=function(){
         $scope.task=Task.get({id:$stateParams.id});
-        //$scope.selectedItem = null;
     };
     $scope.loadTask();
 });

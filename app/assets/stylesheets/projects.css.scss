@@ -17,3 +17,8 @@ a.nodecoration{
 .table tbody>tr>td{
   vertical-align: middle;
 }
+
+.completed {
+  text-decoration: line-through;
+  color: #d9d9d9;
+}

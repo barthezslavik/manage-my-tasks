@@ -2,12 +2,13 @@
   <tbody>
     <tr ng-repeat="task in tasks">
       <td>
-        {{task.name}}
+        <div class="checkbox" ng-class="{completed: todo.completed}">
+          <label><input type="checkbox" value="" ng-model="todo.completed" ng-change="doneTask(task)">{{task.name}}</label>
+        </div>
       </td>
       <td>
         <a class="btn btn-primary" ui-sref="editTask({id:task.id})">Edit</a>
         <a class="btn btn-danger" ng-click="deleteTask(task)">Delete</a>
-        <a class="btn btn-success" ng-click="doneTask(task)">Done</a>
       </td>
     </tr>
   </tbody>

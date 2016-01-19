@@ -26,6 +26,11 @@ app.config(function($stateProvider){
         templateUrl:'partials/task-edit.html',
         controller:'TaskEditController'
     });
-}).run(function($state){
+}).run(function($state,$rootScope){
    $state.go('projects');
+   $rootScope.priorities = [
+     { id: 1, name: 'High' },
+     { id: 2, name: 'Normal' },
+     { id: 3, name: 'Low' }
+   ];
 });
