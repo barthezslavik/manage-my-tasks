@@ -20,7 +20,7 @@ app.controller('SignInController',function($scope,$state,Auth){
   }
 })
 
-app.controller('SignUpController',function($scope,Auth){
+app.controller('SignUpController',function($scope,$state,Auth){
   $scope.signUp=function(){
     var credentials = {
       email: $scope.email,
@@ -34,9 +34,9 @@ app.controller('SignUpController',function($scope,Auth){
     };
 
     Auth.register(credentials, config).then(function(user) {
-      console.log(user);
+      $state.go('projects');
     }, function(errors) {
-      $scope.errors = errors.data;
+      $scope.signUpForm = errors.data;
     });
   }
 })

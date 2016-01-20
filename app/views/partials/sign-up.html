@@ -1,17 +1,20 @@
-<form accept-charset="UTF-8" ng-submit="signUp()">
+<form accept-charset="UTF-8" name="signUpForm" ng-submit="signUp()">
   <div class="form-group">
     <label for="user_email">Email</label><br />
-    <input class="form-control" autofocus="autofocus" ng-model="email" id="user_email" name="user[email]" type="email" value="" />
+    <input class="form-control" autofocus="autofocus" ng-model="email" id="user_email" type="email" value="" />
+    <span class="help-block" ng-show="signUpForm.errors.email">{{signUpForm.errors.email[0]}}</span>
   </div>
 
   <div class="form-group">
     <label for="user_password">Password</label><br />
     <input class="form-control" autocomplete="off" ng-model="password" id="user_password" name="user[password]" type="password" />
+    <span class="help-block" ng-show="signUpForm.errors.password">{{signUpForm.errors.password[0]}}</span>
   </div>
  
   <div class="form-group">
     <label for="user_password_confirmation">Password confirmation</label><br />
     <input class="form-control" autocomplete="off" ng-model="password_confirmation" id="user_password" name="user[password]" type="password" />
+    <span class="help-block" ng-show="signUpForm.errors.password_confirmation">{{signUpForm.errors.password_confirmation[0]}}</span>
   </div>
 
   <div>
