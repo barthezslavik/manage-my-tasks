@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :projects, defaults: { format: "json" }
   end
 
-  resources :projects
+  #resources :projects
   root to: "application#index"
   get '*partials', to: "application#partials"
 end

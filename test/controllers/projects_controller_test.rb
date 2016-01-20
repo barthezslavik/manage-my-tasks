@@ -6,44 +6,44 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, format: :json
     assert_response :success
     assert_not_nil assigns(:projects)
   end
 
   test "should get new" do
-    get :new
+    get :new, format: :json
     assert_response :success
   end
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { description: @project.description, name: @project.name }
+      post :create, project: { description: @project.description, name: @project.name }, format: :json
     end
 
-    assert_redirected_to project_path(assigns(:project))
+    assert_response :success
   end
 
   test "should show project" do
-    get :show, id: @project
+    get :show, id: @project, format: :json
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @project
+    get :edit, id: @project, format: :json
     assert_response :success
   end
 
   test "should update project" do
-    patch :update, id: @project, project: { description: @project.description, name: @project.name }
-    assert_redirected_to project_path(assigns(:project))
+    patch :update, id: @project, project: { description: @project.description, name: @project.name }, format: :json
+    assert_response :success
   end
 
   test "should destroy project" do
     assert_difference('Project.count', -1) do
-      delete :destroy, id: @project
+      delete :destroy, id: @project, format: :json
     end
 
-    assert_redirected_to projects_path
+    assert_response :success
   end
 end

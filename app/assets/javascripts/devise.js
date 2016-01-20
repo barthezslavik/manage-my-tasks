@@ -1,6 +1,6 @@
 app = angular.module('application.deviseControllers',[])
 
-app.controller('SignInController',function($scope,Auth){
+app.controller('SignInController',function($scope,$state,Auth){
   $scope.signIn=function(){
     var credentials = {
       email: $scope.email,
@@ -13,7 +13,7 @@ app.controller('SignInController',function($scope,Auth){
     };
 
     Auth.login(credentials, config).then(function(user) {
-      console.log(user);
+      $state.go('projects');
     }, function(error) {
       $scope.error = error.data.error;
     });
@@ -35,8 +35,8 @@ app.controller('SignUpController',function($scope,Auth){
 
     Auth.register(credentials, config).then(function(user) {
       console.log(user);
-    }, function(error) {
-      $scope.error = error.data.error;
+    }, function(errors) {
+      $scope.errors = errors.data;
     });
   }
 })

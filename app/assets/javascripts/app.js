@@ -42,12 +42,11 @@ app.config(function($stateProvider){
         controller:'TaskEditController'
     });
 }).run(function($state,$rootScope,Auth){
-    //Auth.currentUser().then(function(user) {
-    //    $state.go('projects');
-    //    //console.log(user);
-    //  }, function(error) {
-    //    //$state.go('signIn');
-    //});
+    Auth.currentUser().then(function(user) {
+        $state.go('projects');
+    }, function(error) {
+        $state.go('signIn');
+    });
 
    $rootScope.priorities = [
      { id: 'High', name: 'High' },

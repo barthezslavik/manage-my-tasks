@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
+  name: Run
   project_id: 1
   done: false
   deadline: 2016-01-13
 
 two:
-  name: MyString
-  description: MyText
-  project_id: 1
-  done: false
+  name: Football
+  project_id: 2
+  done: true
   deadline: 2016-01-13
