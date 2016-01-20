@@ -15,7 +15,7 @@ app.controller('SignInController',function($scope,$state,Auth){
     Auth.login(credentials, config).then(function(user) {
       $state.go('projects');
     }, function(error) {
-      $scope.error = error.data.error;
+      $scope.signInForm = errors.data;
     });
   }
 })

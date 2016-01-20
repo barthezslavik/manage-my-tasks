@@ -6,16 +6,20 @@ app.controller('TaskCreateController',function($location,$rootScope,$scope,$stat
 
     $scope.addTask=function(){
         $scope.task.$save(function(){
-            $location.path('projects/'+$rootScope.project_id+'/view')
-        });
-    }
+          $location.path('projects/'+$rootScope.project_id+'/view')
+        }, function(errors) {
+          $scope.taskForm = errors.data;
+      });
+    };
 })
 
 app.controller('TaskEditController',function($location,$scope,$state,$stateParams,Task){
     $scope.updateTask=function(){
         $scope.task.$update(function(){
-            $location.path('projects/'+$scope.task.project_id+'/view')
-        });
+          $location.path('projects/'+$scope.task.project_id+'/view')
+        }, function(errors) {
+          $scope.taskForm = errors.data;
+      });
     };
     $scope.loadTask=function(){
         $scope.task=Task.get({id:$stateParams.id});

@@ -2,6 +2,7 @@
   <label for="name" class="col-sm-2 control-label">Name</label>
   <div class="col-sm-10">
     <input type="text" ng-model="task.name" class="form-control" id="name" placeholder="Task Name"/>
+    <span class="help-block" ng-show="taskForm.errors.name">{{taskForm.errors.name[0]}}</span>
   </div>
 </div>
 

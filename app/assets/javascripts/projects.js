@@ -35,15 +35,19 @@ app.controller('ProjectCreateController',function($scope,$state,$stateParams,Pro
     $scope.project=new Project();
     $scope.addProject=function(){
         $scope.project.$save(function(){
-            $state.go('projects');
-        });
+          $state.go('projects');
+        }, function(errors) {
+          $scope.projectForm = errors.data;
+      });
     }
 })
 
 app.controller('ProjectEditController',function($scope,$state,$stateParams,Project){
     $scope.updateProject=function(){
         $scope.project.$update(function(){
-            $state.go('projects');
+          $state.go('projects');
+        }, function(errors) {
+          $scope.projectForm = errors.data;
         });
     };
     $scope.loadProject=function(){
