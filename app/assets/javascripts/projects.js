@@ -1,4 +1,4 @@
-app = angular.module('application.controllers',[])
+app = angular.module('application.projectControllers',[])
 
 app.controller('ProjectViewController',function($rootScope,popupService,$scope,$window,$stateParams,Project,Task){
     $scope.project=Project.get({id:$stateParams.id});

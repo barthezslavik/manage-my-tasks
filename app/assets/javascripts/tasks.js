@@ -1,4 +1,4 @@
-app = angular.module('application.controllers',[])
+app = angular.module('application.taskControllers',[])
 
 app.controller('TaskCreateController',function($location,$rootScope,$scope,$state,$stateParams,Task,Project){
     $scope.task=new Task();

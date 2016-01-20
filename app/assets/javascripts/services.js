@@ -1,4 +1,4 @@
-app = angular.module('application.project',[]).factory('Project',function($resource){
+app = angular.module('application.projectFactory',[]).factory('Project',function($resource){
   return $resource('/api/projects/:id',{id:'@id'},{
     update: {
       method: 'PUT'
@@ -12,7 +12,7 @@ app.service('popupService',function($window){
   }
 });
 
-app = angular.module('application.task',[]).factory('Task',function($resource){
+app = angular.module('application.taskFactory',[]).factory('Task',function($resource){
   return $resource('/api/tasks/:id',{id:'@id'},{
     update: {
       method: 'PUT'

@@ -1,5 +1,11 @@
-app = angular.module('application',['ui.router','ngResource','Devise',
-  'application.controllers','application.project','application.task']);
+app = angular.module('application',[
+  'ui.router','ngResource','Devise',
+  'application.projectControllers',
+  'application.taskControllers',
+  'application.deviseControllers',
+  'application.projectFactory',
+  'application.taskFactory'
+]);
 
 app.config(function($stateProvider){
     $stateProvider.state('projects',{
@@ -22,11 +28,11 @@ app.config(function($stateProvider){
         url:'/projects/:id/edit',
         templateUrl:'partials/project-edit.html',
         controller:'ProjectEditController'
-    }).state('sign_up',{
-        url:'/users/sign_up',
+    }).state('signUp',{
+        url:'/users/sign-up',
         templateUrl:'partials/sign-up.html',
         controller:'SignUpController'
-    }).state('sign_in',{
+    }).state('signIn',{
         url:'/users/sign_in',
         templateUrl:'partials/sign-in.html',
         controller:'SignInController'
@@ -40,7 +46,7 @@ app.config(function($stateProvider){
         $state.go('projects');
         console.log(user);
       }, function(error) {
-        $state.go('sign_in');
+        $state.go('signIn');
     });
 
    $rootScope.priorities = [
