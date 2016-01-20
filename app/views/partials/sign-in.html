@@ -1,12 +1,14 @@
-<form accept-charset="UTF-8" action="/users/sign_in" class="new_user" id="new_user" ng-submit="signIn()" method="post">
+<form accept-charset="UTF-8" ng-submit="signIn()">
+  <div class="alert alert-danger" ng-if="error">{{error}}</div>
+
   <div class="form-group">
     <label for="user_email">Email</label><br />
-    <input class="form-control" autofocus="autofocus" id="user_email" name="user[email]" type="email" value="" />
+    <input class="form-control" autofocus="autofocus" ng-model="email" id="user_email" name="user[email]" type="email" value="" />
   </div>
 
   <div class="form-group">
     <label for="user_password">Password</label><br />
-    <input class="form-control" autocomplete="off" id="user_password" name="user[password]" type="password" />
+    <input class="form-control" autocomplete="off" ng-model="password" id="user_password" name="user[password]" type="password" />
   </div>
 
   <div>

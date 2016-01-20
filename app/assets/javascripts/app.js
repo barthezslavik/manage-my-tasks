@@ -29,7 +29,7 @@ app.config(function($stateProvider){
         templateUrl:'partials/project-edit.html',
         controller:'ProjectEditController'
     }).state('signUp',{
-        url:'/users/sign-up',
+        url:'/users/sign_up',
         templateUrl:'partials/sign-up.html',
         controller:'SignUpController'
     }).state('signIn',{
@@ -42,12 +42,12 @@ app.config(function($stateProvider){
         controller:'TaskEditController'
     });
 }).run(function($state,$rootScope,Auth){
-    Auth.currentUser().then(function(user) {
-        $state.go('projects');
-        console.log(user);
-      }, function(error) {
-        $state.go('signIn');
-    });
+    //Auth.currentUser().then(function(user) {
+    //    $state.go('projects');
+    //    //console.log(user);
+    //  }, function(error) {
+    //    //$state.go('signIn');
+    //});
 
    $rootScope.priorities = [
      { id: 'High', name: 'High' },
