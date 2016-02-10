@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
@@ -25,6 +24,11 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'inherited_resources'
 gem 'bootstrap-datepicker-rails'
+
+group :heroku do
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
